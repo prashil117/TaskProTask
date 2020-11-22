@@ -63,9 +63,7 @@ class AppList extends Component {
                                 {AppData}
                             </tbody>
                         </Table>
-                    </div> : <div> <h4>{this.props.msg}</h4>{this.props.msg === "" ? <Spin tip="Loading..."></Spin> : this.props.msg === "No Data" && <Button onClick={() => { this.addData() }}>
-                        Add data from Data.json file
-                    </Button>}
+                    </div> : <div> <h4>{this.props.msg}</h4>{this.props.msg === "" ? <Spin tip="Loading..."></Spin> : ""}
                     </div>}
             </div>
         )

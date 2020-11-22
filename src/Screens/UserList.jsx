@@ -38,7 +38,7 @@ class UserList extends Component {
             <div>
                 <div>
                     <h1>Data {this.props.msg === "" ? 'fetching' : 'fetched'} from Firebase Real Time Database</h1>
-                    <Link className="btn btn-info" to="Apps">Go To Apps</Link>
+                    {userData && userData.length !== 0  && <Link className="btn btn-info" to="Apps">Go To Apps</Link>}
                 </div>
 
                 {userData && userData.length !== 0 ?
@@ -55,7 +55,7 @@ class UserList extends Component {
                                 {userData}
                             </tbody>
                         </Table>
-                    </div> : <div> <h4>{this.props.msg}</h4>{this.props.msg === "" ? <Spin tip="Loading..."></Spin> : this.props.msg === "No Data" && <Button onClick={() => { this.addData() }}>
+                    </div> : <div> <h4>{this.props.msg }</h4>{this.props.msg === "" ? <Spin tip="Loading..."></Spin> : this.props.msg === "No Data" && <Button onClick={() => { this.addData() }}>
                         Add data from Data.json file
                     </Button>}
                     </div>}

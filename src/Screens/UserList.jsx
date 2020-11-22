@@ -43,7 +43,7 @@ class UserList extends Component {
 
                 {userData && userData.length !== 0 ?
                     <div>
-                        <Table striped bordered hover>
+                        <Table striped bordered hover variant="dark">
                             <thead>
                                 <tr>
                                     <th>User ID</th>

@@ -26,18 +26,19 @@ class AppList extends Component {
     }
     handleChange = (key, e) => {
         this.props.AddRatings({ id: key, rate: e })
-        console.log("value", e + " " + key)
     }
     render() {
         let AppData = []
         let ele = null;
+        let star = null;
         this.props.AccountList.map((data) => {
             const { id, title, name, ratings } = data;
+            star = (<Rate allowHalf onChange={(e) => this.handleChange(id, e)} value={ratings} />)
             ele = (<tr key={id}>
                 <td>{id}</td>
                 <td>{name}</td>
                 <td>{title}</td>
-                <td><Rate allowHalf onChange={(e) => this.handleChange(id, e)} value={ratings} /></td>
+                <td>{star}</td>
             </tr>)
             return AppData.push(ele);
         })
@@ -49,7 +50,7 @@ class AppList extends Component {
                 <Link className="btn btn-info" to="userList">Go to userlist</Link>
                 {AppData && AppData.length !== 0 ?
                     <div>
-                        <Table striped bordered hover>
+                        <Table striped bordered hover variant="dark">
                             <thead>
                                 <tr>
                                     <th>App ID</th>
